@@ -1,5 +1,6 @@
 # COURS DE SCIENCE DES DONNÉES
 ## École Nationale de Commerce et de Gestion (ENCG) - 4ème Année
+<img src="IMG_5552.jpeg" style="height:464px;margin-right:432px"/>
 #Akharaz fatima zahra
 ---
 
