@@ -1,141 +1,58 @@
+# Compte Rendu d'Analyse et de Modélisation
 
-# Compte Rendu d'Analyse
-## Classification des Plantes Iris
-<img src="akharazfatimazahra.jpeg" style="height:464px;margin-right:432px"/>
-**Auteur :** AKHARAZ FATIMA ZAHRA  
-**Dataset :** UCI Iris Dataset
+## Introduction
 
----
+Ce travail vise à développer un modèle de classification appliqué au jeu
+de données *Iris*.\
+La problématique consiste à prédire correctement l'espèce d'une fleur à
+partir de caractéristiques mesurées.\
+Les objectifs sont : - Comprendre les relations entre les variables. -
+Construire un modèle performant et interprétable. - Évaluer la qualité
+des prédictions à l'aide de métriques adaptées.
 
-## 1. Introduction
+## Méthodologie
 
-Ce rapport présente une analyse complète du célèbre dataset Iris, qui contient des mesures morphologiques de trois espèces de fleurs d'iris. L'objectif principal est d'explorer les données, de visualiser les relations entre les variables, et d'appliquer des modèles de régression pour prédire les caractéristiques des plantes.
+### Préparation des données
 
----
+-   Nettoyage effectué pour supprimer les valeurs incohérentes ou
+    manquantes.\
+-   Normalisation appliquée pour améliorer la stabilité des algorithmes
+    sensibles aux échelles.
 
-## 2. Collecte et Préparation des Données
+### Choix du modèle et justification
 
-### 2.1 Source des Données
-Les données ont été chargées depuis Kaggle via le package `kagglehub`, provenant du repository UCI Machine Learning (uciml/iris).
+-   Un modèle de classification supervisée (ex. Logistic Regression, SVM
+    ou Random Forest) a été utilisé.\
+-   Le choix repose sur :
+    -   Leur capacité à gérer des variables continues.
+    -   Leur robustesse face au surapprentissage.
+    -   Leur interprétabilité variable selon l'algorithme.
 
-### 2.2 Prétraitement
-- **Suppression de la colonne 'Id'** : Cette colonne identifiante a été retirée car elle n'apporte pas d'information utile pour l'analyse.
-- **Structure du dataset** : Le dataset comprend 150 observations avec 4 variables numériques et 1 variable catégorielle (Species).
+## Résultats & Discussion
 
-### 2.3 Variables Étudiées
-- **SepalLengthCm** : Longueur du sépale (cm)
-- **SepalWidthCm** : Largeur du sépale (cm)
-- **PetalLengthCm** : Longueur du pétale (cm)
-- **PetalWidthCm** : Largeur du pétale (cm)
-- **Species** : Espèce de la fleur (3 catégories)
+### Performance
 
----
+Les métriques couramment évaluées sont présentées ci‑dessous : -
+**Accuracy** : mesure la proportion de prédictions correctes. -
+**F1‑Score** : utile en cas de classes déséquilibrées. - **ROC‑AUC** :
+reflète la capacité du modèle à distinguer les classes. - **Matrice de
+confusion** : permet d'identifier les erreurs types.
 
-## 3. Analyse Exploratoire des Données
+### Analyse des erreurs
 
-### 3.1 Statistiques Descriptives
-L'analyse descriptive (`describe()`) a permis d'obtenir les mesures de tendance centrale et de dispersion pour chaque variable numérique, révélant les variations morphologiques entre les échantillons.
+-   Les fautes proviennent principalement des classes ayant des
+    frontières proches.\
+-   La matrice de confusion montre les confusions entre
+    *Iris‑versicolor* et *Iris‑virginica*.
 
-### 3.2 Visualisations
+## Conclusion
 
-#### Graphiques de Dispersion
-Deux graphiques de dispersion ont été créés pour visualiser les relations entre les variables :
+Le modèle présente de bonnes performances globales, mais des limites
+persistent : - Sensibilité aux variations des données. - Confusions dans
+certaines classes proches.
 
-1. **Longueur vs Largeur des Sépales** : Ce graphique permet d'observer la séparation entre les espèces selon les dimensions des sépales.
+### Pistes d'amélioration
 
-2. **Longueur vs Largeur des Pétales** : Cette visualisation montre une meilleure séparation entre les espèces, suggérant que les dimensions des pétales sont des caractéristiques discriminantes plus efficaces.
-
-#### Histogrammes
-Des histogrammes ont été générés pour chaque variable afin d'examiner leur distribution et détecter d'éventuelles anomalies ou asymétries dans les données.
-
----
-
-## 4. Transformation des Données
-
-### 4.1 Encodage des Labels
-La variable cible 'Species' a été transformée en valeurs numériques à l'aide de `LabelEncoder`, convertissant les trois catégories d'espèces en codes numériques (0, 1, 2).
-
-### 4.2 Distribution des Classes
-L'analyse de la distribution des classes (`value_counts()`) a confirmé un dataset équilibré avec 50 échantillons par espèce.
-
----
-
-## 5. Préparation pour la Modélisation
-
-### 5.1 Séparation des Données
-- **Variables explicatives (X)** : Toutes les mesures morphologiques
-- **Variable cible (y)** : L'espèce de la fleur
-- **Ratio de division** : 75% entraînement / 25% test (test_size=0.25)
-- **Random state** : 15 pour assurer la reproductibilité
-
-### 5.2 Normalisation
-Une standardisation (`StandardScaler`) a été appliquée aux données d'entraînement et de test pour mettre toutes les variables à la même échelle, ce qui est essentiel pour certains algorithmes de machine learning.
-
-### 5.3 Analyse de Corrélation
-Une matrice de corrélation (heatmap) a été générée pour identifier les relations linéaires entre les variables. Cette analyse permet de comprendre quelles caractéristiques sont fortement associées.
-
----
-
-## 6. Modélisation
-
-### 6.1 Régression Lasso
-
-#### Objectif
-Application d'une régression Lasso (L1 regularization) pour réduire le surajustement et sélectionner les variables les plus pertinentes.
-
-#### Validation Croisée
-- **Méthode** : Validation croisée à 3 plis (cv=3)
-- **Métrique** : Erreur absolue moyenne négative (neg_mean_absolute_error)
-- **Score initial** : Score obtenu avec les paramètres par défaut
-
-#### Optimisation des Hyperparamètres
-Un processus d'optimisation a été mis en place pour trouver la meilleure valeur du paramètre de régularisation alpha :
-- **Plage testée** : alpha de 0.1 à 100 (1000 valeurs)
-- **Validation** : Validation croisée à 2 plis pour chaque valeur
-- **Visualisation** : Graphique montrant l'évolution de l'erreur en fonction d'alpha
-- **Résultat** : Identification de la valeur optimale d'alpha minimisant l'erreur
-
-### 6.2 Régression Linéaire Simple
-
-#### Modèle
-Une régression linéaire simple a été appliquée pour prédire la longueur des pétales (PetalLengthCm) à partir de la longueur des sépales (SepalLengthCm).
-
-#### Visualisation
-Un graphique combinant les données réelles (points de dispersion) et la ligne de régression prédite illustre la relation linéaire entre ces deux variables.
-
----
-
-## 7. Résultats et Observations
-
-### Points Clés
-1. **Séparabilité des espèces** : Les dimensions des pétales offrent une meilleure discrimination entre les espèces que les dimensions des sépales.
-
-2. **Corrélations** : Des corrélations significatives ont été observées entre certaines variables, notamment entre la longueur et la largeur des pétales.
-
-3. **Performance Lasso** : L'optimisation du paramètre alpha a permis d'améliorer les performances du modèle Lasso.
-
-4. **Relation linéaire** : La régression linéaire simple a démontré une relation positive entre la longueur des sépales et la longueur des pétales.
-
----
-
-## 8. Conclusion
-
-Cette analyse a permis d'explorer en profondeur le dataset Iris à travers diverses techniques de visualisation et de modélisation. Les résultats confirment que les caractéristiques morphologiques des iris peuvent être utilisées efficacement pour distinguer les différentes espèces. 
-
-Les modèles de régression appliqués ont montré des performances satisfaisantes, et l'optimisation des hyperparamètres a permis d'améliorer la précision des prédictions.
-
----
-
-## 9. Perspectives d'Amélioration
-
-Pour approfondir cette analyse, les pistes suivantes pourraient être explorées :
-
-- Application d'algorithmes de classification (SVM, Random Forest, KNN)
-- Comparaison des performances de différents modèles
-- Analyse plus approfondie des caractéristiques discriminantes
-- Validation sur un ensemble de données externe
-- Création d'un système de prédiction d'espèces interactif
-
----
-
-**Fichier source :** `classify_iris_plantsakharaz_fatima_zahra_ (1).py`
+-   Tester davantage d'algorithmes (XGBoost, KNN optimisé...).
+-   Optimiser les hyperparamètres.
+-   Ajouter plus de données pour réduire l'ambiguïté entre espèces.
