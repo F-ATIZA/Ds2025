@@ -1,6 +1,6 @@
 # AKHARAZ FATIMA ZAHRA
 ## Photo personnelle
-<img src="akharazfatimazahra.jpeg" style=""/>
+<img src="collection.jpeg" style="height:464px;margin-right:432px"/>
 
 **Numéro d'étudiant** : 24010341
 
