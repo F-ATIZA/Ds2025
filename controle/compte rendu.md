@@ -1,6 +1,6 @@
 # AKHARAZ FATIMA ZAHRA
 
-<img src=IMG_5552.png style="height:300px;margin-right:300px; float:left; border-radius:10px;"/>
+<img src= IMG_5552.png style="height:300px;margin-right:300px; float:left; border-radius:10px;"/>
 
 
 **Numéro d'étudiant** : 24010341
