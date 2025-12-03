@@ -1,4 +1,13 @@
+# AKHARAZ FATIMA ZAHRA
 
+<img src=IMG_5552.png style="height:300px;margin-right:300px; float:left; border-radius:10px;"/>
+
+
+**Numéro d'étudiant** : 24010341
+
+**Classe** : CAC1
+
+<br clear="left"/>
 [compte_rendu_fifa20.md](https://github.com/user-attachments/files/23911189/compte_rendu_fifa20.md)
 
 # Compte rendu d’analyse et modélisation – FIFA 20 Player Dataset
