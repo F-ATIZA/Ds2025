@@ -1,59 +1,95 @@
 
-# Descriptif du Dataset FIFA 20 -- Format Markdown
+# **Descriptif du Dataset FIFA 20 – Analyse des Données**
 
-## 1. Présentation générale
+## **1. Présentation générale**
 
-Le dataset FIFA 20 regroupe les statistiques complètes des joueurs
-présents dans FIFA 20.\
-Il contient plus de 18 000 joueurs et environ 104 variables.
+Le dataset *FIFA 20 Complete Player Dataset* regroupe les statistiques complètes des joueurs présents dans le jeu FIFA 20 (EA Sports). Il contient plus de 18 000 joueurs, chacun décrit par environ 104 variables.
+Ces variables couvrent les informations personnelles, les caractéristiques physiques, les compétences techniques, les performances sportives, et la valeur marchande des joueurs.
+Ce dataset est particulièrement adapté aux analyses de performance, de segmentation de joueurs, ou à la prédiction de la valeur ou du potentiel.
 
-## 2. Structure du dataset
+---
 
-### A. Identifiants
+## **2. Structure du dataset**
 
--   sofifa_id
--   player_url
--   short_name, long_name
--   nationality, dob
+Le dataset est structuré en plusieurs catégories de variables :
 
-### B. Informations physiques
+### **A. Identifiants et métadonnées**
 
--   age
--   height_cm
--   weight_kg
+* **sofifa_id** : Identifiant unique du joueur.
+* **player_url** : Lien vers sa fiche sur Sofifa.
+* **short_name / long_name** : Noms abrégé et complet.
+* **dob** : Date de naissance.
+* **nationality** : Nationalité du joueur.
 
-### C. Club et contrat
+### **B. Informations physiques**
 
--   club
--   value_eur
--   wage_eur
--   contract_until
+* **age** : Âge du joueur.
+* **height_cm** : Taille en centimètres.
+* **weight_kg** : Poids en kilogrammes.
 
-### D. Performance générale
+### **C. Informations contractuelles et club**
 
--   overall
--   potential
+* **club** : Club auquel le joueur appartient.
+* **value_eur** : Valeur estimée du joueur en euros.
+* **wage_eur** : Salaire hebdomadaire en euros.
+* **contract_until** : Année de fin de contrat.
+* **team_position** : Poste actuel dans le club.
+* **loaned_from** : Club propriétaire en cas de prêt.
 
-### E. Attributs techniques
+### **D. Notes de performance**
 
-Inclut pace, shooting, passing, dribbling, defending, physic...
+* **overall** : Note générale du joueur dans FIFA.
+* **potential** : Potentiel maximal estimé.
+  Ce sont les indicateurs les plus utilisés pour évaluer la qualité globale du joueur.
 
-### F. Attributs gardiens
+### **E. Compétences techniques**
 
-gk_diving, gk_handling, gk_kicking...
+Attributs reflétant les qualités sportives :
 
-### G. Notes par poste
+* *pace, shooting, passing, dribbling, defending, physic*, etc.
+  Il existe aussi des sous-attributs plus précis comme :
+* *finishing*, *ball_control*, *short_passing*, *volleys*, etc.
 
-ls, st, lw, cam, cdm, cb, rb, etc.
+### **F. Attributs spécifiques aux gardiens**
 
-## 3. Qualité des données
+Pour les gardiens de but :
 
--   Format mixte (ex. 68+2)
--   Valeurs manquantes normales pour certains postes
+* **gk_diving**, **gk_handling**, **gk_kicking**, **gk_reflexes**, **gk_speed**, etc.
+  Ces colonnes sont logiquement vides pour les joueurs de champ.
 
-## 4. Usages possibles
+### **G. Notes par poste**
 
--   Clustering des joueurs
--   Analyse par poste
--   Prédiction du potentiel
--   Analyse de marché
+Le dataset comprend aussi des notes spécifiques en fonction du poste joué :
+
+* **ls, st, rs**,
+* **lw, lf, cf, rf, rw**,
+* **cam, lm, cm, rm, cdm**,
+* **lwb, lb, lcb, cb, rcb, rb**, etc.
+  Certaines notes sont exprimées sous forme “68+2”, indiquant la note de base + la contribution du style du joueur.
+
+---
+
+## **3. Qualité des données et points à traiter**
+
+### **Points positifs**
+
+* Dataset très complet.
+* Peu de valeurs manquantes pour les joueurs de champ.
+* Données adaptées aux analyses avancées : clustering, prédiction, segmentation.
+
+### **Points à nettoyer**
+
+* Certaines colonnes contiennent des valeurs non numériques (ex. “67+3”).
+* Les colonnes dédiées aux gardiens sont vides pour les autres postes.
+* Le grand nombre de variables nécessite une sélection pertinente selon l’objectif.
+
+---
+
+## **4. Exemples d’usages possibles**
+
+* **Segmentation** des joueurs selon leur style (défenseur, ailier, meneur, etc.).
+* **Prédiction du potentiel** à partir des caractéristiques techniques.
+* **Analyse du marché footballistique** (relation valeur → performance).
+* **Comparaison entre clubs, postes ou nationalités.**
+* **Identification des joueurs les plus performants ou sous-valorisés.**
+
