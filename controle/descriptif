@@ -1,1 +1,59 @@
 
+# Descriptif du Dataset FIFA 20 -- Format Markdown
+
+## 1. Présentation générale
+
+Le dataset FIFA 20 regroupe les statistiques complètes des joueurs
+présents dans FIFA 20.\
+Il contient plus de 18 000 joueurs et environ 104 variables.
+
+## 2. Structure du dataset
+
+### A. Identifiants
+
+-   sofifa_id
+-   player_url
+-   short_name, long_name
+-   nationality, dob
+
+### B. Informations physiques
+
+-   age
+-   height_cm
+-   weight_kg
+
+### C. Club et contrat
+
+-   club
+-   value_eur
+-   wage_eur
+-   contract_until
+
+### D. Performance générale
+
+-   overall
+-   potential
+
+### E. Attributs techniques
+
+Inclut pace, shooting, passing, dribbling, defending, physic...
+
+### F. Attributs gardiens
+
+gk_diving, gk_handling, gk_kicking...
+
+### G. Notes par poste
+
+ls, st, lw, cam, cdm, cb, rb, etc.
+
+## 3. Qualité des données
+
+-   Format mixte (ex. 68+2)
+-   Valeurs manquantes normales pour certains postes
+
+## 4. Usages possibles
+
+-   Clustering des joueurs
+-   Analyse par poste
+-   Prédiction du potentiel
+-   Analyse de marché
