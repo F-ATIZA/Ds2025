@@ -1,7 +1,7 @@
 # AKHARAZ FATIMA ZAHRA
-
+https://github.com/F-ATIZA/Ds2025/blob/7ffb478a0d332fad704d30e71223b7b5142e3498/IMG_5552.png
 <img src= IMG_5552.png style="height:300px;margin-right:300px; float:left; border-radius:10px;"/>
-
+<img src= <img src= IMG_5552.png style="height:300px;margin-right:300px; float:left; border-radius:10px;"/>style="height:300px;margin-right:300px; float:left; border-radius:10px;"/>
 
 **Numéro d'étudiant** : 24010341
 
