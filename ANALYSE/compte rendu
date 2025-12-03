@@ -1,58 +1,106 @@
-# Compte Rendu d'Analyse et de Modélisation
+## Photo personnelle
 
-## Introduction
+<img src="akharazfatimazahra.jpeg" style="height:464px;margin-right:432px"/>
 
-Ce travail vise à développer un modèle de classification appliqué au jeu
-de données *Iris*.\
-La problématique consiste à prédire correctement l'espèce d'une fleur à
-partir de caractéristiques mesurées.\
-Les objectifs sont : - Comprendre les relations entre les variables. -
-Construire un modèle performant et interprétable. - Évaluer la qualité
-des prédictions à l'aide de métriques adaptées.
+**Numéro d'étudiant** : 24010341
 
-## Méthodologie
+**Classe** : CAC1
+# Compte rendu de projet : Classification & Analyse du dataset Iris
 
-### Préparation des données
+## 1. Introduction
 
--   Nettoyage effectué pour supprimer les valeurs incohérentes ou
-    manquantes.\
--   Normalisation appliquée pour améliorer la stabilité des algorithmes
-    sensibles aux échelles.
+**Contexte :**\
+Le dataset *Iris* est un jeu de données classique utilisé pour illustrer
+des tâches de classification supervisée.\
+Il contient des mesures de sépales et pétales de trois espèces d'iris :
+*Setosa*, *Versicolor* et *Virginica*.
 
-### Choix du modèle et justification
+**Problématique :**\
+L'objectif est de comprendre la distribution des variables, de préparer
+les données puis de tester différents modèles prédictifs.
 
--   Un modèle de classification supervisée (ex. Logistic Regression, SVM
-    ou Random Forest) a été utilisé.\
--   Le choix repose sur :
-    -   Leur capacité à gérer des variables continues.
-    -   Leur robustesse face au surapprentissage.
-    -   Leur interprétabilité variable selon l'algorithme.
+**Objectifs :** - Nettoyer et préparer le dataset. - Justifier les choix
+méthodologiques. - Entraîner des modèles. - Évaluer leurs performances
+(Accuracy, F1, RMSE, ROC-AUC selon les modèles). - Analyser les erreurs
+et proposer des pistes d'amélioration.
 
-## Résultats & Discussion
+------------------------------------------------------------------------
 
-### Performance
+## 2. Méthodologie
 
-Les métriques couramment évaluées sont présentées ci‑dessous : -
-**Accuracy** : mesure la proportion de prédictions correctes. -
-**F1‑Score** : utile en cas de classes déséquilibrées. - **ROC‑AUC** :
-reflète la capacité du modèle à distinguer les classes. - **Matrice de
-confusion** : permet d'identifier les erreurs types.
+### 2.1 Prétraitement des données
 
-### Analyse des erreurs
+-   **Suppression de la colonne `Id`** : variable inutile pour
+    l'apprentissage supervisé.\
+-   **Visualisation exploratoire** pour confirmer la séparation
+    naturelle entre les classes.\
+-   **Encodage des labels** (`LabelEncoder`) pour convertir les classes
+    en valeurs numériques.\
+-   **Standardisation** (`StandardScaler`) : normalisation nécessaire
+    pour les modèles sensibles aux échelles comme la régression linéaire
+    ou les méthodes à régularisation.
 
--   Les fautes proviennent principalement des classes ayant des
-    frontières proches.\
--   La matrice de confusion montre les confusions entre
-    *Iris‑versicolor* et *Iris‑virginica*.
+### 2.2 Justification des choix techniques
 
-## Conclusion
+-   **Nettoyage minimaliste** : dataset propre, aucune valeur
+    manquante.\
+-   **Standardisation** : améliore la convergence et la performance des
+    modèles.\
+-   **Régression Linéaire & Lasso** : utilisés ici pour étudier les
+    liens linéaires entre variables.
+    -   *Lasso* permet une sélection automatique des variables via la
+        pénalisation L1.\
+-   **Split Train/Test** : 75% apprentissage, 25% test pour garantir une
+    évaluation honnête.
 
-Le modèle présente de bonnes performances globales, mais des limites
-persistent : - Sensibilité aux variations des données. - Confusions dans
-certaines classes proches.
+------------------------------------------------------------------------
 
-### Pistes d'amélioration
+## 3. Résultats & Discussion
 
--   Tester davantage d'algorithmes (XGBoost, KNN optimisé...).
--   Optimiser les hyperparamètres.
--   Ajouter plus de données pour réduire l'ambiguïté entre espèces.
+### 3.1 Modèle Lasso
+
+-   Cross-validation réalisée pour différents hyperparamètres `alpha`.\
+-   L'objectif était de minimiser l'erreur absolue moyenne (MAE).\
+-   Le modèle n'est pas adapté à une tâche de classification multiclasse
+    mais offre un aperçu des relations linéaires.
+
+### 3.2 Régression Linéaire
+
+Exemple réalisé : prédiction de *PetalLengthCm* à partir de
+*SepalLengthCm*.\
+- Modèle très simple → RMSE relativement élevé car la relation n'est pas
+strictement linéaire.\
+- Graphiquement, la dispersion indique qu'un modèle plus complexe serait
+préférable.
+
+### 3.3 Métriques usuelles (rappel pour un modèle de classification)
+
+*Le code fourni ne va pas jusqu'à l'entraînement complet d'un modèle de
+classification. Voici les métriques qui auraient été utilisées :*
+
+-   **Accuracy** : proportion de bonnes prédictions.\
+-   **F1-Score** : utile en cas de classes déséquilibrées.\
+-   **Matrice de confusion** : visualisation des erreurs par classe.\
+-   **ROC-AUC** : applicable surtout en mode un-vs-all.
+
+### 3.4 Analyse des erreurs
+
+-   Les espèces *Versicolor* et *Virginica* sont les plus difficiles à
+    distinguer car proches dans l'espace des caractéristiques.\
+-   Le choix d'un modèle simple (linéaire) limite la capacité de capture
+    des frontières non linéaires entre classes.
+
+------------------------------------------------------------------------
+
+## 4. Conclusion
+
+### Limites du modèle
+
+-   Les modèles testés (Lasso, régression linéaire) ne sont pas adaptés
+    à la classification multiclasse.\
+-   Relation linéaire insuffisante pour modéliser correctement les
+    interactions entre variables.
+
+
+
+
