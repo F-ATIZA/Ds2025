@@ -1,3 +1,11 @@
+## Photo personnelle
+
+<img src="akharazfatimazahra.jpeg" style="height:464px;margin-right:432px"/>
+
+**Numéro d'étudiant** : 24010341
+
+**Classe** : CAC1
+
 # 📘 GRAND GUIDE : ANATOMIE D'UN PROJET DATA SCIENCE — HEART DISEASE EDITION
 
 ---
