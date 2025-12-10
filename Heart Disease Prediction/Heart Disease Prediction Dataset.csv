@@ -1,5 +1,3 @@
-https://drive.google.com/file/d/1WKI8Ztlim8BqBqGib85iuiNq9vcxhTIs/view?usp=sharing
-
 id;age;sex;dataset;cp;trestbps;chol;fbs;restecg;thalch;exang;oldpeak;slope;ca;thal;num
 1;63;Male;Cleveland;typical angina;145;233;TRUE;lv hypertrophy;150;FALSE;2.3;downsloping;0;fixed defect;0
 2;67;Male;Cleveland;asymptomatic;160;286;FALSE;lv hypertrophy;108;TRUE;1.5;flat;3;normal;2
@@ -921,4 +919,3 @@ id;age;sex;dataset;cp;trestbps;chol;fbs;restecg;thalch;exang;oldpeak;slope;ca;th
 918;55;Male;VA Long Beach;asymptomatic;122;223;TRUE;st-t abnormality;100;FALSE;0;;;fixed defect;2
 919;58;Male;VA Long Beach;asymptomatic;;385;TRUE;lv hypertrophy;;;;;;;0
 920;62;Male;VA Long Beach;atypical angina;120;254;FALSE;lv hypertrophy;93;TRUE;0;;;;1
-
